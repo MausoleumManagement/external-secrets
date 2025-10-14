@@ -30036,6 +30036,23 @@ spec:
         secret:
           secretName: external-secrets-webhook
 ---
+apiVersion: external-secrets.io/v1
+kind: ClusterSecretStore
+metadata:
+  name: openbao-backend
+  namespace: external-secrets
+spec:
+  provider:
+    vault:
+      auth:
+        tokenSecretRef:
+          key: token
+          name: openbao-token
+          namespace: external-secrets
+      path: secret
+      server: http://openbao.openbao.svc.cluster.local:8200
+      version: v2
+---
 apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingWebhookConfiguration
 metadata:

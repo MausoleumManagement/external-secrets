@@ -16,3 +16,4 @@ helmcharts:
     valuesFile: values.yaml
 resources:
   - namespace.yaml
+  - clustersecretstore.yaml
