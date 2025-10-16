@@ -30048,7 +30048,7 @@ spec:
         kubernetes:
           mountPath: kubernetes
           role: nekropolis-external-secrets
-      path: secret
+      path: kv
       server: http://openbao.openbao.svc.cluster.local:8200
       version: v2
 ---
