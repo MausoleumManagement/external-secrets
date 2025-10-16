@@ -17,5 +17,3 @@ helmcharts:
 resources:
   - namespace.yaml
   - clustersecretstore.yaml
-  - secret-service-account.yaml
-

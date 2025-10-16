@@ -29805,15 +29805,6 @@ subjects:
 apiVersion: v1
 kind: Secret
 metadata:
-  annotations:
-    kubernetes.io/service-account.name: external-secrets
-  name: external-secrets-service-account
-  namespace: external-secrets
-type: kubernetes.io/service-account-token
----
-apiVersion: v1
-kind: Secret
-metadata:
   labels:
     app.kubernetes.io/instance: external-secrets
     app.kubernetes.io/managed-by: Helm
@@ -30054,10 +30045,9 @@ spec:
   provider:
     vault:
       auth:
-        tokenSecretRef:
-          key: token
-          name: openbao-token
-          namespace: external-secrets
+        kubernetes:
+          mountPath: kubernetes
+          role: nekropolis-external-secrets
       path: secret
       server: http://openbao.openbao.svc.cluster.local:8200
       version: v2
